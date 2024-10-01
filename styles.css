@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #f4f4f9;
+}
+
+/* Header */
+header {
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f4b400;
+}
+
+/* Menu icon for mobile */
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Hero Section with Parallax */
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('your-hero-image.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+.animated-text {
+    display: inline-block; /* Ensures each letter is treated as a block */
+    opacity: 0; /* Start invisible */
+    transform: translateY(20px); /* Move down slightly */
+    animation: fadeInUp 0.5s forwards; /* Fade-in effect */
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delay for each letter */
+.animated-text:nth-child(1) { animation-delay: 0.1s; }
+.animated-text:nth-child(2) { animation-delay: 0.2s; }
+.animated-text:nth-child(3) { animation-delay: 0.3s; }
+.animated-text:nth-child(4) { animation-delay: 0.4s; }
+.animated-text:nth-child(5) { animation-delay: 0.5s; }
+.animated-text:nth-child(6) { animation-delay: 0.6s; }
+.animated-text:nth-child(7) { animation-delay: 0.7s; }
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #f4b400;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    align-self: center;
+    width: 30%;
+    background-color: #ca7428;
+    color: #333;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #96ad97;
+}
+
+/* About, Projects, Skills, Contact */
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.project-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.project-link {
+    text-decoration: none;
+    color: #f4b400;
+    font-weight: bold;
+}
+
+
+/* Skills Section */
+.skills1 {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #f8eded;
+}
+
+.skills1 h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.skills1-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.skill {
+    width: 200px;
+}
+
+.skill h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.skill-bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+    margin-bottom: 20px;
+}
+
+.progress {
+    background: linear-gradient(90deg, #f4b400, #4285f4);
+    height: 100%;
+    width: 0;
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+}
+
+/* Animation for skill bars */
+.skills1-container .skill .progress {
+    animation: loadProgress 2s ease forwards;
+}
+
+/* Keyframe to load progress bars */
+@keyframes loadProgress {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: var(--progress-width);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .nav-links {
+        display: none
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(51, 51, 51, 0.9);
+        position: absolute;
+        right: 0;
+        top: 60px;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+/* Gradient Background for Sections */
+@keyframes gradientAnimation {
+    0% {
+        background-color: rgba(244, 180, 0, 0.5);
+        background-position: 0% 50%;
+    }
+    50% {
+        background-color: rgba(0, 0, 255, 0.5);
+        background-position: 100% 50%;
+    }
+    100% {
+        background-color: rgba(244, 180, 0, 0.5);
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: linear-gradient(270deg, rgba(244, 180, 0, 0.5), rgba(0, 0, 255, 0.5));
+    background-size: 400% 400%; /* Makes the gradient larger for smooth animation */
+    animation: gradientAnimation 15s ease infinite; /* Animation name, duration, easing, infinite */
+}
